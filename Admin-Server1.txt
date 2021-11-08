@@ -1,0 +1,78 @@
+# Server Script runs only on Hosted server & not in test mode
+# KrunkScript Copyright (C) Yendis Entertainment Pty Ltd
+# 
+# Add custom actions here
+
+# Runs when the game starts
+str[] admins = str["Khow!_Ha"];
+bool check = false;
+public action start() {
+
+}
+
+# Runs every game tick
+public action update(num delta) {
+
+}
+
+# Player spawns in
+public action onPlayerSpawn(str id) {
+
+}
+
+# Player update
+public action onPlayerUpdate(str id, num delta, static obj inputs) {
+
+}
+
+# Called from Custom Trigger Action
+public action onCustomTrigger(str playerID, str customParam) {
+
+}
+
+# Server receives network message
+public action onNetworkMessage(str id, obj data, str playerID) {
+	obj player = GAME.PLAYERS.findByID(data.playerSelected);
+	check = false;
+	obj[] players = GAME.PLAYERS.list();
+	for(num i = 0; i < lengthOf admins; i++){
+		if(toStr player.username == admins[i]){
+			check = true;
+		}
+	}
+	if(!check){
+		obj player1 = GAME.PLAYERS.findByID(playerID);
+		obj player2 = GAME.PLAYERS.findByID(data.playerSelected);
+		if(id == "3"){
+			(num) player.health -= 200;
+		}
+		if(id == "4"){
+			GAME.ADMIN.kick(data.playerSelected);
+		}
+		if(id == "5"){
+			GAME.ADMIN.ban(data.playerSelected);
+		}
+		if(id == "0"){
+			player1.position.x = player2.position.x;
+			player1.position.y = player2.position.y;
+			player1.position.z = player2.position.z;
+		}
+		if(id == "1"){
+			player2.position.x = player1.position.x;
+			player2.position.y = player1.position.y;
+			player2.position.z = player1.position.z;
+		}
+		if(id == "2"){
+			player2.defaultMovement = false;
+		}
+	}
+}
+
+public action onChatMessage(str msg, str playerID) {
+
+}
+
+# When a player leaves the server
+public action onPlayerLeave(str playerID) {
+
+}
