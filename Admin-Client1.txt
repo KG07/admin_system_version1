@@ -10,14 +10,6 @@ num commandSelected = 0;
 num playerShifted = 0;
 str[] admins = str["Username1", "Username2"];
 bool check = false;
-public action start() {
-
-}
-
-# Runs every game tick
-public action update(num delta) {
-    
-}
 
 # Add rendering logic in here
 public action render(num delta) {
@@ -53,16 +45,6 @@ public action render(num delta) {
             GAME.OVERLAY.drawText("ban", 1430, 167 + (35 * i), 0, 11, "center", "#000", 1);
         }
     }
-}
-
-# Player spawns in
-public action onPlayerSpawn(str id) {
-
-}
-
-# Player update
-public action onPlayerUpdate(str id, num delta, static obj inputs) {
-    
 }
 
 # User pressed a key
@@ -106,25 +88,6 @@ public action onKeyPress(str key, num code) {
     }
 }
 
-# User released a key
-public action onKeyUp(str key, num code) {
-    
-}
-# User held a key
-public action onKeyHeld(str key, num code) {
-
-}
-
-# User clicked on screen
-public action onMouseClick(num button, num x, num y) {
-    
-}
-
-# User released clicked on screen
-public action onMouseUp(num button, num x, num y) {
-
-}
-
 # User scrolled on screen
 public action onMouseScroll(num dir) {
 	if(usingMenu){
@@ -146,14 +109,4 @@ public action onMouseScroll(num dir) {
             }
         }
 	}
-}
-
-# User clicked a DIV (ID)
-public action onDIVClicked(str id) {
-
-}
-
-# Client receives network message
-public action onNetworkMessage(str id, obj data) {
-    
 }
